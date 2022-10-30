@@ -45,6 +45,7 @@ class Solution
                 //   👇      thus making it String         // 👇Delimiter/separator
                                                             
         String currentKey = Integer.toString(currentItem) + "_" + Integer.toString(capacity);
+        //concating keys in above line
         
         if(memo.containsKey(currentKey))
             return memo.get(currentKey);

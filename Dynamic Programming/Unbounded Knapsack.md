@@ -6,7 +6,7 @@ The task is to fill the knapsack in such a way that we can get the maximum profi
 Note: Each item can be taken any number of times.
 
 
- #Unoptimized Solution(Brute Force):
+ ##Unoptimized Solution(Brute Force):
 
 ##Java
 

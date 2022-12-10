@@ -10,7 +10,7 @@ Note: Each item can be taken any number of times.
 ##Java
 
 ```java
-// Unoptimized Solution:
+// Unoptimized Solution(Brute Force):
 class Solution{
     static int knapSack(int N, int capacity, int val[], int wt[])
     {

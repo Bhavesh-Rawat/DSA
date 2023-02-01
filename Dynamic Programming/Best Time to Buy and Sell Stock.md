@@ -20,7 +20,7 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 ##Java
 
 ```java
-// Optimized Solution:
+// Solved Using Recursion 
 
 class Solution {
     public int maxProfit(int[] prices) {
@@ -43,5 +43,45 @@ class Solution {
             int sell = bestBuy(prices, currentday + 1, 1,transcount - 1) + prices[currentday];
       return Math.max(idle,sell); 
           }
+    }
+}
+
+
+
+
+##Java
+
+```java
+// Optimized Solution: Dynamic Programing
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        return bestBuy (prices,0,1,1, new HashMap <String,Integer>() );
+    }
+    public int bestBuy(int[] prices,int currentday,int canBuy,int transcount,HashMap <String,Integer>memo)
+    {
+     if(currentday >= prices.length || transcount == 0)
+     return 0;
+  
+  String currentKey = transcount + "-" + currentday + "-" + canBuy;
+
+  if (memo.containsKey(currentKey))
+   return memo.get(currentKey);
+  
+  int ans = 0;
+     if (canBuy == 1) {
+               int idle = bestBuy(prices, currentday + 1, canBuy,transcount,memo);
+               int buy = bestBuy(prices, currentday + 1, 0, transcount,memo) - prices[currentday];
+
+               ans = Math.max(idle,buy);  
+                     }
+     else {
+         
+            int idle = bestBuy(prices, currentday + 1, canBuy,transcount,memo);
+            int sell = bestBuy(prices, currentday + 1, 1,transcount - 1,memo) + prices[currentday];
+            ans = Math.max(idle,sell); 
+          }
+          memo.put(currentKey,ans);
+          return ans;
     }
 }

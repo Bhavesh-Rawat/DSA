@@ -34,26 +34,29 @@ class GfG
 {
     int maxLen(int arr[], int n)
     {
-        HashMap<Integer, Integer> memo = new HashMap<>();
-        int prefixSum = 0;
+        HashMap<Integer,Integer> memo = new HashMap<Integer,Integer>();
+        
         int answer = 0;
+        int prefixSum = 0;
         
-        memo.put(prefixSum, -1);
+        memo.put(prefixSum,-1);
+        //In HashMap   Key,value 
         
-        for(int i = 0; i < n; i++){
-            int currentVal = arr[i];
-            prefixSum += currentVal;
+        for (int k = 0; k < n;k++)
+        // k is the pointer for iterating in the array
+        {
+            prefixSum = prefixSum + arr[k];
+            // To get sum of sub arrays
             
-            if(memo.containsKey(prefixSum)){
-                int temp = i - memo.get(prefixSum);
-                answer = Math.max(answer, temp);
-            }
-            else{
-                memo.put(prefixSum, i);
-            }
+            if(memo.containsKey(prefixSum))
+        
+            answer = Math.max(answer,k - memo.get(prefixSum));
+            
+            else
+            memo.put(prefixSum,k);
         }
         
         return answer;
-        
     }
+    
 }

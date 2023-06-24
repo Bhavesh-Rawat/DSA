@@ -8,9 +8,12 @@ Example 1:
 
 Input:
 n = 6
+
 arr[] = {0,0,5,5,0,0}
+
 Output: 6
-Explanation: The 6 subarrays are 
+
+Explanation : The 6 subarrays are 
 [0], [0], [0], [0], [0,0], and [0,0].
 
 ## Usage/Examples

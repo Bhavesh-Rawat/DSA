@@ -20,28 +20,33 @@ sub-arrays are: (0, 1), (2, 3), (0, 3), (3, 4),
 ## Usage/Examples
 
 ```java
-class Solution{
-    //Function to count subarrays with sum equal to 0.
-    public static long findSubarray(long[] arr ,int n) 
+class Solution
+{
+    //Function to count subarrays with 1s and 0s.
+    static int countSubarrWithEqualZeroAndOne(int arr[], int n)
     {
-       HashMap<Long, Long> memo = new HashMap<>();
-       long ans = 0;
-       long prefixSum = 0;
-       
-       memo.put(0L,1L);
-       
-      for(int i=0; i<n; i++){
-            long currentVal = arr[i];
-            prefixSum += currentVal;
+        HashMap<Integer, Integer> memo = new HashMap<>();
+        int prefixSum = 0;
+        int ans = 0;
+        memo.put(0, 1);
+        
+        for(int i=0; i<n; i++){
+            int currentVal = arr[i];
+            if(currentVal == 0){
+                prefixSum += -1;
+            }
+            else{
+                prefixSum += 1;
+            }
             
             if(memo.containsKey(prefixSum)){
-                long k = memo.get(prefixSum);
-                ans+=k;
-                memo.put(prefixSum, k + 1);
+                int j = memo.get(prefixSum);
+                ans+=j;
+                memo.put(prefixSum, j + 1);
                 
             }
             else{
-                memo.put(prefixSum, 1L);
+                memo.put(prefixSum, 1);
             }
         }
         

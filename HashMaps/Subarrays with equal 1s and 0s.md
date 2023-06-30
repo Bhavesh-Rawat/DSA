@@ -17,7 +17,7 @@ Explanation : The index range for the 8
 sub-arrays are: (0, 1), (2, 3), (0, 3), (3, 4), 
 (4, 5) ,(2, 5), (0, 5), (1, 6)
 
-## Usage/Examples
+## Code
 
 ```java
 class Solution

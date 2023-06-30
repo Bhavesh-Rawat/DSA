@@ -16,7 +16,7 @@ Output: 6
 Explanation : The 6 subarrays are 
 [0], [0], [0], [0], [0,0], and [0,0].
 
-## Usage/Examples
+## Code
 
 ```java
 class Solution{

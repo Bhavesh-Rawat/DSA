@@ -26,7 +26,7 @@ of distinct elements in this window are 4.
 Window 4 of size k = 4 is 3 4 2 3. Number
 of distinct elements in this window are 3.
 
-## Usage/Examples
+## Code
 
 ```java
 class Solution{

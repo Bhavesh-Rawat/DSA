@@ -30,60 +30,110 @@ of distinct elements in this window are 3.
 
 ```java
 
+
 class Solution
 {
     ArrayList<Integer> countDistinct(int A[], int n, int k)
     {
         // code here 
-        ArrayList<Integer> answer = new ArrayList<Integer>();
-        HashMap<Integer,Integer> memo = new HashMap<Integer,Integer>();
+        ArrayList<Integer> answer = new ArrayList<>();
+        HashMap<Integer, Integer> memo = new HashMap<>();
         int distinct = 0;
-        
-        for(int i = 0; i < k; i++)
-        {
+ 
+        for(int i = 0; i < k; i++){
             int currentVal = A[i];
-            if(memo.containsKey(currentVal))
-            {
+ 
+            if(memo.containsKey(currentVal)){
                 memo.put(currentVal, memo.get(currentVal)+1);
-            } else 
-            {
-                memo.put(currentVal,1);
-                distinct += 1;
-                // incrementing distinct value based on hasmap value (ditinct frequency)
+            }else{
+                memo.put(currentVal, 1);
+                //distinct += 1;
             }
-           
         }
-         answer.add(distinct);
-            // adding distinct value based on hasmap value (ditinct frequency)
-            
+ 
+        answer.add(memo.size());
         int release = 0;
-        for(int acquire = 0; acquire< n ;acquire++)
-        // second pointer to iterate array
-        {
+ 
+        for(int acquire = k; acquire < n; acquire++){
             int discardElement = A[release];
-            memo.put(discardElement , memo.get(discardElement)-1);
+            memo.put(discardElement, memo.get(discardElement)-1);
             release += 1;
-            
-            if (memo.get(discardElement) == 0)
-            {
+ 
+            if(memo.get(discardElement) == 0){
                 memo.remove(discardElement);
-                // remove from map if frequency is zero 
-                distinct -= 1;
+                //distinct-= 1;
             }
-            
+ 
             int currentVal = A[acquire];
-            if (memo.containsKey(currentVal)){
+ 
+            if(memo.containsKey(currentVal)){
                 memo.put(currentVal, memo.get(currentVal)+1);
-            } else {
-                memo.put(currentVal,1);
+            }else{
+                memo.put(currentVal, 1);
                 distinct += 1;
             }
-            answer.add(distinct);
+ 
+            answer.add(memo.size());
         }
-        
+ 
         return answer;
     }
 }
+
+// class Solution
+// {
+//     ArrayList<Integer> countDistinct(int A[], int n, int k)
+//     {
+//         // code here 
+//         ArrayList<Integer> answer = new ArrayList<Integer>();
+//         HashMap<Integer,Integer> memo = new HashMap<Integer,Integer>();
+//         int distinct = 0;
+        
+//         for(int i = 0; i < k; i++)
+//         {
+//             int currentVal = A[i];
+//             if(memo.containsKey(currentVal))
+//             {
+//                 memo.put(currentVal, memo.get(currentVal)+1);
+//             } else 
+//             {
+//                 memo.put(currentVal,1);
+//                 distinct += 1;
+//                 // incrementing distinct value based on hasmap value (ditinct frequency)
+//             }
+           
+//         }
+//          answer.add(distinct);
+//             // adding distinct value based on hasmap value (ditinct frequency)
+            
+//         int release = 0;
+//         for(int acquire = 0; acquire< n ;acquire++)
+//         // second pointer to iterate array
+//         {
+//             int discardElement = A[release];
+//             memo.put(discardElement , memo.get(discardElement)-1);
+//             release += 1;
+            
+//             if (memo.get(discardElement) == 0)
+//             {
+//                 memo.remove(discardElement);
+//                 // remove from map if frequency is zero 
+//                 distinct -= 1;
+//             }
+            
+//             int currentVal = A[acquire];
+//             if (memo.containsKey(currentVal)){
+//                 memo.put(currentVal, memo.get(currentVal)+1);
+//             } else {
+//                 memo.put(currentVal,1);
+//                 distinct += 1;
+//             }
+//             answer.add(distinct);
+//         }
+        
+//         return answer;
+//     }
+// }
 
 
 ```

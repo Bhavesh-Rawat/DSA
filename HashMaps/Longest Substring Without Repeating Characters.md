@@ -18,32 +18,31 @@ Explanation: The answer is "abc", with the length of 3.
 ## Code
 
 ```java
-class Solution{
-    //Function to count subarrays with sum equal to 0.
-    public static long findSubarray(long[] arr ,int n) 
-    {
-       HashMap<Long, Long> memo = new HashMap<>();
-       long ans = 0;
-       long prefixSum = 0;
-       
-       memo.put(0L,1L);
-       
-      for(int i=0; i<n; i++){
-            long currentVal = arr[i];
-            prefixSum += currentVal;
-            
-            if(memo.containsKey(prefixSum)){
-                long k = memo.get(prefixSum);
-                ans+=k;
-                memo.put(prefixSum, k + 1);
-                
-            }
-            else{
-                memo.put(prefixSum, 1L);
-            }
-        }
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+          HashMap<Character,Integer> memo = new HashMap<> ();
         
-        return ans;
+        int answer = 0;
+        int release = 0;
+
+        for(int acquire =0; acquire< s.length();acquire++)
+        {
+          Character currentChar = s.charAt(acquire);
+
+          while (release < acquire && memo.containsKey(currentChar))
+          {
+              Character disChar = s.charAt(release);
+             
+                  memo.remove(disChar);
+                  release += 1;
+          }
+
+              memo.put(currentChar,1);
+              answer = Math.max(answer,acquire-release+1); 
+              
+          
+        }
+        return answer;
     }
 }
 

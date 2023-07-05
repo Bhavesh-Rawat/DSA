@@ -32,8 +32,6 @@ public static int getLengthofLongestSubstring(String s,int k ) {
 		{
 		    Character currentChar = s.charAt(acquire);
 		    
-		    memo.put(currentChar,1);
-		    
 		    if(memo.containsKey(currentChar))
 		    {
 		        memo.put(currentChar,memo.get(currentChar) +1);

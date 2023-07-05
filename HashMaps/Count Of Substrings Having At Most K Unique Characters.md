@@ -28,7 +28,7 @@ public static int getLengthofLongestSubstring(String s,int k ) {
 		int distinct = 0;
 		//
 		
-		for(int acquire = 0; acquire < s.legth();acquire++)
+		for(int acquire = 0; acquire < s.length();acquire++)
 		{
 		    Character currentChar = s.charAt(acquire);
 		    
@@ -41,7 +41,7 @@ public static int getLengthofLongestSubstring(String s,int k ) {
 		    else
 		    //
 		    {
-		        memo.put(curentChar,1);
+		        memo.put(currentChar,1);
 		        distinct += 1;
 		    }
 		    

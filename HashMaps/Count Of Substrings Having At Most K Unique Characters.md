@@ -50,7 +50,7 @@ public static int getLengthofLongestSubstring(String s,int k ) {
 		      Character disChar = s.charAt(release);  
 		      release += 1; 
 		      memo.put(disChar,memo.get(disChar) -1);
-		      if (memo.containsKey(disChar) == 0)
+		      if (memo.get(disChar) == 0)
 		      {
 		          memo.remove(disChar);
 		          distinct -= 1;

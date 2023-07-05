@@ -22,7 +22,7 @@ Output: 23
 public static int getLengthofLongestSubstring(String s,int k ) {
 		// Write your code here.
 			
-		HashMap<Character,Integer> = new HashMap<>();
+		HashMap<Character,Integer> memo = new HashMap<>();
 		int answer = 0;
 		int release = 0;
 		int distinct = 0;

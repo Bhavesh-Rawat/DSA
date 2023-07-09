@@ -20,46 +20,51 @@ Explanation: "cbebebe" is the longest substring with K distinct characters.
 ## Code
 
 ```java
-class Solution {
-    public int longestkSubstr(String s, int k) {
+class Solution 
+{ 
+    long getSubstringWithEqual012(String str) 
+    { 
         // code here
-        HashMap<Character,Integer> memo = new HashMap<>();
-        int answer = 0;
-        int release = 0;
-        int distinct = 0;
+        long answer = 0;
+        int z0 = 0;
+        int z1 = 0;
+        int z2 = 0;
         
-        for(int acquire = 0; acquire < s.length();acquire++)
+        HashMap<String,Integer> memo = new HashMap<>();
+        String expression = (z1 - z0)+ "#" + (z2 - z1);
+        memo.put(expression,1);
+        
+        for(int i = 0; i < str.length(); i++) 
         {
-            Character currentChar = s.charAt(acquire);
-            if(memo.containsKey(currentChar)){
-                memo.put(currentChar,memo.get(currentChar)+1);
+            if (str.charAt(i) == '0')
+            {
+                z0 += 1;
+            }
+            else if (str.charAt(i) == '1')
+            {
+               z1 += 1; 
+            }
+            else 
+            {
+                z2 += 1;
+            }
+            
+            expression = (z1 - z0)+ "#" +(z2 - z1);
+            if(memo.containsKey(expression))
+            {
+                answer += memo.get(expression);
+                memo.put(expression,memo.get(expression)+1);
             }
             else
             {
-                memo.put(currentChar,1);
-                distinct += 1;
-            }
-            while(release <= acquire && distinct > k)
-            {
-                Character disChar = s.charAt(release);
-                release += 1;
-                memo.put(disChar,memo.get(disChar)-1);
-                if(memo.get(disChar) == 0)
-                {
-                    memo.remove(disChar);
-                    distinct -= 1;
-                }
-               
-            }
-            if(distinct == k)
-            {
-                answer =Math.max(answer,acquire - release +1) ; 
-            }
-           
+                 memo.put(expression,1);
+            } 
+          
+            
         }
-        return answer == 0 ? -1 :answer;
+        return answer;
     }
-}
+}    
 ```
 
 

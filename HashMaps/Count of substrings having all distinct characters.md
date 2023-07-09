@@ -1,3 +1,8 @@
+## ARticle Link
+
+ - [geeksforgeeks](https://www.geeksforgeeks.org/count-of-substrings-having-all-distinct-characters/)
+ 
+
 Given a string str consisting of lowercase alphabets, the task is to find the number of possible substrings (not necessarily distinct) that consists of distinct characters only.
 Examples: 
 

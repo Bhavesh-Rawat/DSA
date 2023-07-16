@@ -34,12 +34,18 @@ class Solution {
         if (root == null) 
         {
          return 0;
+        // as no children present return 0
         }
+
         for(Node currentNode : root.children)
+        // if the current node is present in the list of children nodes
         {
         answer = Math.max(answer,height(currentNode));
+        // We need maximum depth thus will compase current depth with previous depth
+        // and return maximum depth
         }
         return 1+ answer;
+        // it adds the depth of null nodes to get correct depth
     }
 }
 ```

@@ -54,8 +54,9 @@ As code is iterating on all the nodes atleast once to find it's maximum depth
 
 - Space complexity: $$O(1)$$  
    As we are note storing.
+
  -  Auxilary recursive space :$$O(h)$$ 
-As the tree is already stored and only need the maximum depth thus space is maximum height of tree i.e h.
+As the tree is already stored and only need the maximum depth thus space is maximum height of tree i.e h. Recursive state space
 
 
 

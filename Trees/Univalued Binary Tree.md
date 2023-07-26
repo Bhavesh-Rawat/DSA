@@ -21,7 +21,25 @@ Output: true
 ## Code
 
 ```java
-// 
+class Solution {
+    public boolean isUnivalTree(TreeNode root) {
+        return univalue(root, root.val);
+    }
+    public boolean univalue(TreeNode root,int val)
+    {
+      if(root == null)
+      return true;
+    
+    if(root.val != val)
+    return false;
+
+     Boolean leftans = univalue(root.left, val);
+     Boolean rightans = univalue(root.right, val);
+
+     return leftans && rightans;
+
+    } 
+}
 
 ```
 
